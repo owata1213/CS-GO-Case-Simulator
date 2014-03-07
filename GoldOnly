@@ -1,0 +1,54 @@
+function newCase() {
+	destination = kVar = Math.floor(Math.random()*20)+10;
+	contentsArray = Array();
+
+	for(var i = 0; i < destination+3; i++) {
+
+		var randNum = Math.random();
+		var item2 = Array();
+		var item3 = "";
+
+		if(randNum <= 1000000) {
+			if(curSet >= 8) {
+				item2 = getItemOfRarity("covert");
+			} else {
+				item2 = getKnife();
+			}
+			item2[4] = new Image();
+			item2[4].src = item2[3];
+
+			item2[5] = new Image();
+			item2[5].src = item2[2] + ".png";
+		} else if (randNum <= 0.0101) {
+			item2 = getItemOfRarity("covert");
+		} else if (randNum <= 0.0501) {
+			item2 = getItemOfRarity("classified");
+		} else if (randNum <= 0.2201) {
+			item2 = getItemOfRarity("restricted");
+		} else {
+			item2 = getItemOfRarity("milspec");
+		}
+
+		if(curSet <= 7) {
+			if(Math.random() <= 0.10) {
+				contentsArray.push(Array(item2[0], item2[1], item2[5], item2[4], "true"));
+			} else {
+				contentsArray.push(Array(item2[0], item2[1], item2[5], item2[4], "false"));
+			}
+		} else {
+			contentsArray.push(Array(item2[0], item2[1], item2[5], item2[4], "false"));
+		}
+	}
+
+	audio.pause();
+	audio.currentTime = 0;
+	audio.play();
+	
+	kVar += Math.random()*0.75+0.0675;
+
+	x = 372 / 2;
+	xVel = Math.sqrt((kVar*124.5+(372/2))*xAcc*2);
+	scrollState = 1;
+	caseIsNotReady();
+	$('.rewardBox').remove();
+}
