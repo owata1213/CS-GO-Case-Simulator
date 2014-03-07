@@ -1,0 +1,17 @@
+1.paste this code and press enter
+
+function Repeat(){
+createDisplay(); }
+
+2.paste this code and press enter too
+
+Repeat();
+
+3.HaveFun :)
+
+
+P.S.
+
+When you added createDisplay(); to upper code , results increase in same way
+
+If you use Repeat(); , you can increase it again and again
